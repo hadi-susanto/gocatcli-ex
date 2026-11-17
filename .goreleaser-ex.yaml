@@ -25,7 +25,7 @@ builds:
       - goos: windows
         goarch: arm
     ldflags:
-      - -s -w -X main.commit={{ .ShortCommit }}
+      - -s -w -X main.commit={{ .ShortCommit }} -X main.commitDate={{ .CommitDate }}
 archives:
   - formats: [tar.gz]
     format_overrides:

@@ -8,8 +8,10 @@ GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
 # short sha, "-dirty" suffix on uncommitted changes, tags ignored
 GITCOMMIT=$(shell git describe --always --dirty --abbrev=7 --exclude='*')
+# commit date (RFC3339), shown as YYYY.MM.DD in --version
+GITDATE=$(shell git log -1 --format=%cI)
 SRC="./cmd/gocatcli-ex"
-INSTALL_FLAG=-v -ldflags "-s -w -X main.commit=$(GITCOMMIT)"
+INSTALL_FLAG=-v -ldflags "-s -w -X main.commit=$(GITCOMMIT) -X main.commitDate=$(GITDATE)"
 
 all: build
 

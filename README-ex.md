@@ -118,7 +118,9 @@ Without it, `mount` stops with an error explaining how to install it.
 
 # Versioning and releases
 
-`gocatcli-ex --version` prints `x.y.z-<commit>`, where `x.y.z` is the upstream version.
+`gocatcli-ex --version` prints `x.y.z-YYYY.MM.DD (<commit>)`, where `x.y.z` is the upstream version
+and `YYYY.MM.DD` the commit date (UTC); `<commit>` gets a `-dirty` suffix when built
+with uncommitted changes. Catalogs still record the plain upstream `x.y.z`.
 
 Releases are tagged `v<x.y.z>-ex-YY-MM-DD` (`.2`, `.3`... for extra releases the same day):
 ```bash
